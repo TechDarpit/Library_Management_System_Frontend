@@ -1,0 +1,89 @@
+<!-- User Edit Form -->
+<div class="container-fluid">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <form name="newProductForm" class="needs-validation" novalidate>
+        <div class="row">
+          <div class="col-6 mb-3">
+            <label for="ProductName" class="form-label">First Name</label>
+            <input
+              name="f_Name"
+              class="form-control"
+              type="text"
+              placeholder="Enter First Name"
+              required
+            />
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Please Enter Valid First Name.</div>
+          </div>
+
+          <div class="col-6 mb-3">
+            <label for="ProductName" class="form-label">Last Name</label>
+            <input
+              name="l_Name"
+              class="form-control"
+              type="text"
+              placeholder="Enter Last Name"
+              required
+            />
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Please Enter Valid Last Name.</div>
+          </div>
+
+          <div class="col-6 mb-3">
+            <label for="ProductName" class="form-label">Email I'd</label>
+            <input
+              name="email"
+              class="form-control"
+              type="email"
+              placeholder="Enter Email I'd"
+              required
+            />
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Please Enter Valid Email I'd.</div>
+          </div>
+
+          <div class="col-6 mb-3">
+            <label for="ProductName" class="form-label">Mobile No</label>
+            <input
+              name="mobile_no"
+              class="form-control"
+              type="tel"
+              pattern="\d{10}"
+              minlength="10"
+              maxlength="10"
+              placeholder="Enter Mobile Number"
+              required
+            />
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">
+              Please Enter Valid Mobile Number.
+            </div>
+          </div>
+
+          <div class="col-6 mb-3">
+            <label for="ProductName" class="form-label">Birth Date</label>
+            <input
+              name="birth_date"
+              class="form-control"
+              type="date"
+              placeholder="Enter Birth Date"
+              required
+            />
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Please Enter Valid Birth Date.</div>
+          </div>
+
+          <br />
+          <div class="FormBtnMarginTop col-12 md-3">
+            <button href="/" class="btn btn-success" type="submit">
+              Update
+            </button>
+            <a href="/" class="btn btn-danger">Discard</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- End User Edit Form -->

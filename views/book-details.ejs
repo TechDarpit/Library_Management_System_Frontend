@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('includes/common-css-includes.ejs') %>
+
+    <!-- Custom styles List (table) this page -->
+    <link
+      href="/vendor/datatables/dataTables.bootstrap4.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <%- include('includes/sidebar.ejs') %>
+
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <%- include('includes/topbar.ejs') %>
+
+          <!-- End of Topbar -->
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <div
+              class="d-sm-flex align-items-center justify-content-between mb-4"
+            >
+              <h1 class="h3 mb-0 text-gray-800">Book 1 (Book title)</h1>
+            </div>
+
+            <!-- Book Details Page -->
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Book Details</h6>
+              </div>
+              <div class="card-body">
+                <table class="table table-sm table-borderless">
+                  <tbody>
+                    <tr>
+                      <td>Title</td>
+                      <td>Book 1</td>
+                    </tr>
+                    <tr>
+                      <td>Author Name</td>
+                      <td>Darpit A. Makawana</td>
+                    </tr>
+                    <tr>
+                      <td>Description</td>
+                      <td>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Vel harum ex id provident cupiditate, earum
+                        assumenda ducimus autem. Mollitia aut pariatur, iure
+                        optio facilis ipsa veritatis omnis. Illo, necessitatibus
+                        reiciendis.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Total Qauntity</td>
+                      <td>50</td>
+                    </tr>
+                    <tr>
+                      <td>Available Qauntity</td>
+                      <td>48</td>
+                    </tr>
+                    <tr>
+                      <td>Issued Qauntity</td>
+                      <td>2</td>
+                    </tr>
+                    <tr>
+                      <td>Status</td>
+                      <td>Active</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                  Issued Book Details
+                </h6>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table
+                    class="table table-bordered"
+                    id="dataTable"
+                    width="100%"
+                    cellspacing="0"
+                  >
+                    <thead>
+                      <tr>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>Mobile No.</th>
+                        <th>Issued Date</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr>
+                        <td>Darpit Patel</td>
+                        <td>darpit.patel@gmail.com</td>
+                        <td>9427822846</td>
+                        <td>20-10-2022</td>
+                      </tr>
+                      <tr>
+                        <td>Zimi Patel</td>
+                        <td>zimi.patel@gmail.com</td>
+                        <td>9427822846</td>
+                        <td>09-10-2022</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <%- include('includes/footer.ejs') %>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button & Logout Modal-->
+    <%- include('includes/scroll-logout-modal.ejs') %>
+
+    <!-- Import Common JS Files  -->
+    <%- include('includes/common-js-includes.ejs') %>
+
+    <!-- Page level plugins (Dashboard) -->
+    <script src="/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom (Dashboard) scripts -->
+    <script src="/js/demo/chart-area-demo.js"></script>
+    <script src="/js/demo/chart-pie-demo.js"></script>
+
+    <!-- Page level plugins (Table)  -->
+    <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="/js/demo/datatables-demo.js"></script>
+  </body>
+</html>
