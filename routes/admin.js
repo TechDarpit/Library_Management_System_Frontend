@@ -3,18 +3,12 @@ const express = require('express');
 const userRoutes = require('./users');
 const bookRoutes = require('./books');
 
+const dashboardController = require('../controller/dashboard');
+
 const router = express.Router();
 
 // /admin/add-product => GET
-router.get('/dashboard', (req, res, next) => {
-  res.render('dashboard', {
-    pageTitle: 'Dashboard',
-    path: '/admin/dashboard',
-    formsCSS: true,
-    productCSS: true,
-    activeAddProduct: true,
-  });
-});
+router.get('/dashboard', dashboardController.dashboard);
 
 router.use('/users', userRoutes.routes);
 
