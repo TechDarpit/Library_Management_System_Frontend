@@ -1,10 +1,15 @@
-exports.bookList = (req, res, next) => {
+const Books = require('../model/Books');
+
+exports.bookList = async (req, res, next) => {
+  const booksList = await Books.findAll();
+
   res.render('books', {
     pageTitle: 'Books',
     path: '/admin/books',
     formsCSS: true,
     productCSS: true,
     activeAddProduct: true,
+    books: booksList,
   });
 };
 
@@ -18,22 +23,34 @@ exports.addBook = (req, res, next) => {
   });
 };
 
-exports.bookDetails = (req, res, next) => {
+exports.bookDetails = async (req, res, next) => {
+  const books_id = req.params.book_id;
+  const bookData = await Books.findOne({
+    where: { id: books_id },
+  });
+
   res.render('book-details', {
     pageTitle: 'Book Deatils',
     path: '/admin/books/:book_id',
     formsCSS: true,
     productCSS: true,
     activeAddProduct: true,
+    book: bookData,
   });
 };
 
-exports.editBook = (req, res, next) => {
+exports.editBook = async (req, res, next) => {
+  const books_id = req.params.book_id;
+  const bookData = await Books.findOne({
+    where: { id: books_id },
+  });
+
   res.render('edit-book', {
     pageTitle: 'Edit Book',
     path: '/admin/books/:book_id',
     formsCSS: true,
     productCSS: true,
     activeAddProduct: true,
+    book: bookData,
   });
 };

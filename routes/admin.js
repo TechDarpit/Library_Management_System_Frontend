@@ -8,6 +8,8 @@ const dashboardController = require('../controller/dashboard');
 const router = express.Router();
 
 // /admin/add-product => GET
+router.get('/login', dashboardController.login);
+
 router.get('/dashboard', dashboardController.dashboard);
 
 router.use('/users', userRoutes.routes);

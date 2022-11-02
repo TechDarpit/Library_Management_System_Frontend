@@ -1,29 +1,49 @@
-exports.usersList = (req, res, next) => {
+const Register = require('../model/register');
+const User = require('../Model/User');
+
+exports.usersList = async (req, res, next) => {
+  const usersList = await User.findAll({ where: { role: 2 } });
+
   res.render('users', {
     pageTitle: 'Usesrs',
     path: '/admin/users',
     formsCSS: true,
     productCSS: true,
     activeAddProduct: true,
+    users: usersList,
   });
 };
 
-exports.userDetails = (req, res, next) => {
+exports.userDetails = async (req, res, next) => {
+  const user_id = req.params.user_id;
+  const userData = await User.findOne({
+    where: { id: user_id, role: 2 },
+  });
+  console.log('\n\nuserData: ', JSON.stringify(userData));
+
   res.render('user-details', {
     pageTitle: 'User Details',
     path: '/admin/users/:user_id',
     formsCSS: true,
     productCSS: true,
     activeAddProduct: true,
+    user: userData,
   });
 };
 
-exports.editUser = (req, res, next) => {
+exports.editUser = async (req, res, next) => {
+  const user_id = req.params.user_id;
+  const userData = await User.findOne({
+    where: { id: user_id, role: 2 },
+  });
+  console.log('\n\nuserData: ', JSON.stringify(userData));
+
   res.render('edit-user', {
     pageTitle: 'Edit User',
     path: '/admin/users/:user_id/edit',
     formsCSS: true,
     productCSS: true,
     activeAddProduct: true,
+    user: userData,
   });
 };

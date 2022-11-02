@@ -33,7 +33,9 @@
             <div
               class="d-sm-flex align-items-center justify-content-between mb-4"
             >
-              <h1 class="h3 mb-0 text-gray-800">Book 1 (Book title)</h1>
+              <h1 class="h3 mb-0 text-gray-800">
+                <%= book.title %> (Book title)
+              </h1>
             </div>
 
             <!-- Book Details Page -->
@@ -46,37 +48,31 @@
                   <tbody>
                     <tr>
                       <td>Title</td>
-                      <td>Book 1</td>
+                      <td><%= book.title %></td>
                     </tr>
                     <tr>
                       <td>Author Name</td>
-                      <td>Darpit A. Makawana</td>
+                      <td><%= book.author_name %></td>
                     </tr>
                     <tr>
                       <td>Description</td>
-                      <td>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Vel harum ex id provident cupiditate, earum
-                        assumenda ducimus autem. Mollitia aut pariatur, iure
-                        optio facilis ipsa veritatis omnis. Illo, necessitatibus
-                        reiciendis.
-                      </td>
+                      <td><%= book.description %></td>
                     </tr>
                     <tr>
                       <td>Total Qauntity</td>
-                      <td>50</td>
+                      <td><%= book.total_qauntity %></td>
                     </tr>
                     <tr>
                       <td>Available Qauntity</td>
-                      <td>48</td>
+                      <td><%= book.quantity %></td>
                     </tr>
                     <tr>
                       <td>Issued Qauntity</td>
-                      <td>2</td>
+                      <td><%= book.total_qauntity-book.quantity %></td>
                     </tr>
                     <tr>
                       <td>Status</td>
-                      <td>Active</td>
+                      <td><%= book.status === 1 ? 'Active' : 'Inactive' %></td>
                     </tr>
                   </tbody>
                 </table>

@@ -63,25 +63,30 @@
                     </thead>
 
                     <tbody>
+                      <% for (let book of books) { %>
                       <tr>
                         <td>
-                          <a href="/admin/books/1" style="color: gray"
-                            >Book 1</a
+                          <a
+                            href="/admin/books/<%= book.id %>"
+                            style="color: gray"
+                            ><%= book.title %></a
                           >
                         </td>
-                        <td>Darpit A. Patel</td>
-                        <td>50</td>
-                        <td>48</td>
-                        <td>Active</td>
+                        <td><%= book.author_name %></td>
+                        <td><%= book.total_qauntity %></td>
+                        <td><%= book.quantity %></td>
+                        <td>
+                          <%= book.status === 1 ? 'Active' : 'Inactive' %>
+                        </td>
                         <td>
                           <a
-                            href="/admin/books/1"
+                            href="/admin/books/<%= book.id %>"
                             class="btn btn-outline-primary btn-circle btn-sm"
                           >
                             <i class="fas fa-info"></i>
                           </a>
                           <a
-                            href="/admin/books/1/edit"
+                            href="/admin/books/<%= book.id %>/edit"
                             class="btn btn-outline-primary btn-circle btn-sm"
                           >
                             <i class="fas fa-edit"></i>
@@ -94,37 +99,7 @@
                           </a>
                         </td>
                       </tr>
-                      <tr>
-                        <td>
-                          <a href="/admin/books/2" style="color: gray"
-                            >Book 2</a
-                          >
-                        </td>
-                        <td>Darpit</td>
-                        <td>50</td>
-                        <td>50</td>
-                        <td>Inactive</td>
-                        <td>
-                          <a
-                            href="/admin/books/2"
-                            class="btn btn-outline-primary btn-circle btn-sm"
-                          >
-                            <i class="fas fa-info"></i>
-                          </a>
-                          <a
-                            href="/admin/books/2/edit"
-                            class="btn btn-outline-primary btn-circle btn-sm"
-                          >
-                            <i class="fas fa-edit"></i>
-                          </a>
-                          <a
-                            href="#"
-                            class="btn btn-outline-primary btn-circle btn-sm"
-                          >
-                            <i class="fas fa-trash"></i>
-                          </a>
-                        </td>
-                      </tr>
+                      <% } %>
                     </tbody>
                   </table>
                 </div>

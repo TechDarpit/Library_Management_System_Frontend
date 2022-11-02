@@ -50,7 +50,7 @@
                         class="form-control"
                         type="text"
                         placeholder="Enter First Name"
-                        value="Darpit"
+                        value="<%= user.first_name %>"
                         required
                       />
                       <div class="invalid-feedback">
@@ -67,7 +67,7 @@
                         class="form-control"
                         type="text"
                         placeholder="Enter Last Name"
-                        value="Patel"
+                        value="<%= user.last_name %>"
                         required
                       />
                       <div class="invalid-feedback">
@@ -84,7 +84,8 @@
                         class="form-control"
                         type="email"
                         placeholder="Enter Email I'd"
-                        value="darpit.patel@gmail.com"
+                        value="<%= user.email %>"
+                        disabled
                         required
                       />
                       <div class="invalid-feedback">
@@ -104,7 +105,7 @@
                         minlength="10"
                         maxlength="10"
                         placeholder="Enter Mobile Number"
-                        value="1234567890"
+                        value="<%= user.mobile_number %>"
                         required
                       />
                       <div class="invalid-feedback">
@@ -121,7 +122,7 @@
                         class="form-control"
                         type="date"
                         placeholder="Enter Birth Date"
-                        value="2022-10-23"
+                        value="<%= user.birth_date %>"
                         required
                       />
                       <div class="invalid-feedback">
@@ -131,10 +132,14 @@
 
                     <br />
                     <div class="FormBtnMarginTop col-12 md-3">
-                      <button href="/" class="btn btn-success" type="submit">
+                      <button
+                        href="/admin/users/"
+                        class="btn btn-success"
+                        type="submit"
+                      >
                         Update
                       </button>
-                      <a href="/" class="btn btn-danger">Discard</a>
+                      <a href="/admin/users" class="btn btn-danger">Discard</a>
                     </div>
                   </div>
                 </form>

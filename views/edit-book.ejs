@@ -56,7 +56,7 @@
                           class="form-control"
                           type="text"
                           placeholder="Enter Book Title"
-                          value="Book 1"
+                          value="<%= book.title %>"
                           required
                         />
                         <div class="invalid-feedback">
@@ -73,7 +73,7 @@
                           class="form-control"
                           type="text"
                           placeholder="Enter Author Name"
-                          value="Darpit M"
+                          value="<%= book.author_name %>"
                           required
                         />
                         <div class="invalid-feedback">
@@ -93,8 +93,7 @@
                           placeholder="Enter Book Description"
                           required
                         >
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos reiciendis perferendis, laborum tempore iste aliquam ea sint culpa aliquid beatae odio et commodi aut. Dolore repellendus ducimus sequi velit est.
-                      </textarea
+<%= book.description %></textarea
                         >
                         <div class="invalid-feedback">
                           Please Enter Valid Book Description.
@@ -111,7 +110,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos reiciendis perfere
                           type="number"
                           min="1"
                           placeholder="Enter Book Quantity"
-                          value="10"
+                          value="<%= book.total_qauntity %>"
                           required
                         />
                         <div class="invalid-feedback">
@@ -120,7 +119,11 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos reiciendis perfere
                       </div>
 
                       <div class="FormBtnMarginTop">
-                        <button href="/" class="btn btn-success" type="submit">
+                        <button
+                          href="/admin/books"
+                          class="btn btn-success"
+                          type="submit"
+                        >
                           Add Book
                         </button>
                         <a href="/admin/books" class="btn btn-danger"

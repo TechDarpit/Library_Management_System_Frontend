@@ -34,7 +34,7 @@
               class="d-sm-flex align-items-center justify-content-between mb-4"
             >
               <h1 class="h3 mb-0 text-gray-800">
-                Darpit Patel (User Name / Email)
+                <%= user.first_name %> <%= user.last_name %> (User Name / Email)
               </h1>
             </div>
 
@@ -48,31 +48,31 @@
                   <tbody>
                     <tr>
                       <td>First Name</td>
-                      <td>Darpit</td>
+                      <td><%= user.first_name %></td>
                     </tr>
                     <tr>
                       <td>Last Name</td>
-                      <td>Patel</td>
+                      <td><%= user.last_name %></td>
                     </tr>
                     <tr>
                       <td>Email</td>
-                      <td>darpit.patel@gmail.com</td>
+                      <td><%= user.email %></td>
                     </tr>
                     <tr>
                       <td>Mobile No.</td>
-                      <td>9427822846</td>
+                      <td><%= user.mobile_number %></td>
                     </tr>
                     <tr>
                       <td>Gender</td>
-                      <td>Male</td>
+                      <td><%= user.gender %></td>
                     </tr>
                     <tr>
                       <td>Birth Date</td>
-                      <td>20-08-2000</td>
+                      <td><%= new Date(user.birth_date).toGMTString();%></td>
                     </tr>
                     <tr>
                       <td>Status</td>
-                      <td>Active</td>
+                      <td><%= user.status === 1 ? 'Active' : 'Inactive' %></td>
                     </tr>
                   </tbody>
                 </table>
@@ -82,7 +82,7 @@
             <div class="card shadow mb-4">
               <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">
-                  Darpit's Issued Book History
+                  <%= user.first_name %>'s Issued Book History
                 </h6>
               </div>
               <div class="card-body">

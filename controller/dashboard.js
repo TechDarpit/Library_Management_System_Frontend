@@ -1,15 +1,21 @@
 const connection = require('../database/connection');
 
+exports.login = (req, res, next) => {
+  try {
+    res.render('login', {
+      pageTitle: 'Admin Login',
+      path: '/admin/login',
+      formsCSS: true,
+      productCSS: true,
+      activeAddProduct: true,
+    });
+  } catch (error) {
+    console.log('error: ', error);
+  }
+};
+
 exports.dashboard = (req, res, next) => {
   try {
-    const users = connection.query('SELECT * FROM `users`;', (err, data) => {
-      console.log('\nusers: ', JSON.stringify(data));
-      if (err) {
-        console.log('err: ', err);
-      }
-      return data;
-    });
-
     res.render('dashboard', {
       pageTitle: 'Dashboard',
       path: '/admin/dashboard',

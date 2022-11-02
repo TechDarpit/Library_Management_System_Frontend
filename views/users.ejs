@@ -62,106 +62,37 @@
                     </thead>
 
                     <tbody>
+                      <% for (let user of users) { %>
                       <tr>
                         <td>
-                          <a href="/admin/users/1" style="color: gray"
-                            >Darpit Patel</a
+                          <a
+                            href="/admin/users/<%= user.id %>"
+                            style="color: gray"
+                            ><%= user.first_name %> <%= user.last_name %></a
                           >
                         </td>
-                        <td>darpitpatel2008@gmail.com</td>
-                        <td>9427822846</td>
-                        <td>Male</td>
-                        <td>Active</td>
+                        <td><%= user.email %></td>
+                        <td><%= user.mobile_number %></td>
+                        <td><%= user.gender %></td>
+                        <td>
+                          <%= user.status === 1 ? 'Active' : 'Inactive' %>
+                        </td>
                         <td>
                           <a
-                            href="/admin/users/1"
+                            href="/admin/users/<%= user.id %>"
                             class="btn btn-outline-primary btn-circle btn-sm"
                           >
                             <i class="fas fa-info"></i>
                           </a>
                           <a
-                            href="/admin/users/1/edit"
+                            href="/admin/users/<%= user.id %>/edit"
                             class="btn btn-outline-primary btn-circle btn-sm"
                           >
                             <i class="fas fa-edit"></i>
                           </a>
                         </td>
                       </tr>
-                      <tr>
-                        <td>
-                          <a href="/admin/users/2" style="color: gray"
-                            >Darpit Patel 2</a
-                          >
-                        </td>
-                        <td>darpitpatel2008@gmail.com</td>
-                        <td>9427822846</td>
-                        <td>Male</td>
-                        <td>Active</td>
-                        <td>
-                          <a
-                            href="/admin/users/2"
-                            class="btn btn-outline-primary btn-circle btn-sm"
-                          >
-                            <i class="fas fa-info"></i>
-                          </a>
-                          <a
-                            href="/admin/users/2/edit"
-                            class="btn btn-outline-primary btn-circle btn-sm"
-                          >
-                            <i class="fas fa-edit"></i>
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="/admin/users/3" style="color: gray"
-                            >Darpit Patel 3</a
-                          >
-                        </td>
-                        <td>darpitpatel2008@gmail.com</td>
-                        <td>9427822846</td>
-                        <td>Male</td>
-                        <td>Active</td>
-                        <td>
-                          <a
-                            href="/admin/users/3"
-                            class="btn btn-outline-primary btn-circle btn-sm"
-                          >
-                            <i class="fas fa-info"></i>
-                          </a>
-                          <a
-                            href="/admin/users/3/edit"
-                            class="btn btn-outline-primary btn-circle btn-sm"
-                          >
-                            <i class="fas fa-edit"></i>
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="/admin/users/4" style="color: gray"
-                            >Darpit Patel 4</a
-                          >
-                        </td>
-                        <td>darpitpatel2008@gmail.com</td>
-                        <td>9427822846</td>
-                        <td>Male</td>
-                        <td>Inactive</td>
-                        <td>
-                          <a
-                            href="/admin/users/4"
-                            class="btn btn-outline-primary btn-circle btn-sm"
-                          >
-                            <i class="fas fa-info"></i>
-                          </a>
-                          <a
-                            href="/admin/users/4/edit"
-                            class="btn btn-outline-primary btn-circle btn-sm"
-                          >
-                            <i class="fas fa-edit"></i>
-                          </a>
-                        </td>
-                      </tr>
+                      <% } %>
                     </tbody>
                   </table>
                 </div>
