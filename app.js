@@ -12,7 +12,10 @@ const adminData = require('./routes/admin');
 const User = require('./Model/User');
 const Books = require('./Model/Books');
 const Register = require('./Model/Register');
-const sequelize = require('./database/connection');
+const db = require('./database_connection/database');
+// const sequelize = require('./database_connection/database');
+
+const { Sequelize, sequelize } = db;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -32,10 +35,10 @@ app.listen(5000);
 
 // <------------------------------ Assosiation -------------------------------------------------------------->
 
-User.hasMany(Register, { foreingKey: 'userId' });
-Books.hasMany(Register, { foreingKey: 'BookId' });
-Register.belongsTo(User, { foreingKey: 'userId' });
-Register.belongsTo(Books, { foreingKey: 'BookId' });
+User.hasMany(Register, { foreingKey: 'user_id' });
+Books.hasMany(Register, { foreingKey: 'book_id' });
+Register.belongsTo(User, { foreingKey: 'user_id' });
+Register.belongsTo(Books, { foreingKey: 'book_id' });
 
 // <------------------------------- Sequelize setting and starting ---------------------------------------->
 sequelize

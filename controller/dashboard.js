@@ -1,4 +1,4 @@
-const connection = require('../database/connection');
+// const connection = require('../database_connection/database');
 
 exports.login = (req, res, next) => {
   try {

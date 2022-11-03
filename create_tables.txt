@@ -1,0 +1,3 @@
+sequelize model:generate --name Book --attributes title:string,author_name:string,description:text,image:string,total_qauntity:integer,available_quantity:integer,status:integer
+
+sequelize model:generate --name Issued_Books --attributes book_id:integer,user_id:integer,issue_date:date,return_date:date
