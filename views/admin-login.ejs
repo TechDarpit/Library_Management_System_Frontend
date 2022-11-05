@@ -17,27 +17,43 @@
                 <div class="col-lg-6">
                   <div class="p-5">
                     <div class="text-center">
-                      <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                      <h1 class="h4 text-gray-900 mb-4">Admin Login</h1>
                     </div>
-                    <form class="user">
+                    <form
+                      method="POST"
+                      action="http://localhost:5000/admin/login"
+                      class="user needs-validation"
+                      novalidate
+                    >
                       <div class="form-group">
                         <input
                           type="email"
                           class="form-control form-control-user"
-                          id="exampleInputEmail"
+                          id="email"
+                          name="email"
                           aria-describedby="emailHelp"
-                          placeholder="Enter Email Address..."
+                          placeholder="Enter Email Address"
+                          required
                         />
+                        <div class="invalid-feedback">
+                          Please enter valid email id.
+                        </div>
                       </div>
                       <div class="form-group">
                         <input
                           type="password"
                           class="form-control form-control-user"
-                          id="exampleInputPassword"
-                          placeholder="Password"
+                          id="password"
+                          name="password"
+                          placeholder="Enter Password"
+                          minlength="8"
+                          required
                         />
+                        <div class="invalid-feedback">
+                          Please enter valid password.
+                        </div>
                       </div>
-                      <div class="form-group">
+                      <div>
                         <div class="custom-control custom-checkbox small">
                           <input
                             type="checkbox"
@@ -49,38 +65,20 @@
                           >
                         </div>
                       </div>
-                      <a
-                        href="index.html"
+                      <br />
+                      <button
+                        type="submit"
                         class="btn btn-primary btn-user btn-block"
                       >
                         Login
-                      </a>
-                      <hr />
-                      <a
-                        href="index.html"
-                        class="btn btn-google btn-user btn-block"
-                      >
-                        <i class="fab fa-google fa-fw"></i> Login with Google
-                      </a>
-                      <a
-                        href="index.html"
-                        class="btn btn-facebook btn-user btn-block"
-                      >
-                        <i class="fab fa-facebook-f fa-fw"></i> Login with
-                        Facebook
-                      </a>
+                      </button>
                     </form>
-                    <hr />
+                    <!-- <hr />
                     <div class="text-center">
-                      <a class="small" href="forgot-password.html"
+                      <a class="small" href="/admin/forgot-password"
                         >Forgot Password?</a
                       >
-                    </div>
-                    <div class="text-center">
-                      <a class="small" href="register.html"
-                        >Create an Account!</a
-                      >
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
@@ -92,5 +90,30 @@
 
     <!-- Bootstrap core JavaScript-->
     <%- include('includes/common-js-includes.ejs') %>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function () {
+        'use strict';
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation');
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms).forEach(function (form) {
+          form.addEventListener(
+            'submit',
+            function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add('was-validated');
+            },
+            false
+          );
+        });
+      })();
+    </script>
   </body>
 </html>

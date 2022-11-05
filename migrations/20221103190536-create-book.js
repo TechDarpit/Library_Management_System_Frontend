@@ -23,7 +23,7 @@ module.exports = {
       image: {
         type: Sequelize.STRING,
       },
-      total_qauntity: {
+      total_quantity: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },

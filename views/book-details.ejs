@@ -60,15 +60,17 @@
                     </tr>
                     <tr>
                       <td>Total Qauntity</td>
-                      <td><%= book.total_qauntity %></td>
+                      <td><%= book.total_quantity %></td>
                     </tr>
                     <tr>
                       <td>Available Qauntity</td>
-                      <td><%= book.quantity %></td>
+                      <td><%= book.available_quantity %></td>
                     </tr>
                     <tr>
                       <td>Issued Qauntity</td>
-                      <td><%= book.total_qauntity-book.quantity %></td>
+                      <td>
+                        <%= book.total_quantity-book.available_quantity %>
+                      </td>
                     </tr>
                     <tr>
                       <td>Status</td>
@@ -103,18 +105,14 @@
                     </thead>
 
                     <tbody>
+                      <% for (let user of book.Issued_Books) { %>
                       <tr>
-                        <td>Darpit Patel</td>
-                        <td>darpit.patel@gmail.com</td>
-                        <td>9427822846</td>
-                        <td>20-10-2022</td>
+                        <td><%= user.first_name %> <%= user.last_name %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.mobile_number %></td>
+                        <td><%= user.issue_date %></td>
                       </tr>
-                      <tr>
-                        <td>Zimi Patel</td>
-                        <td>zimi.patel@gmail.com</td>
-                        <td>9427822846</td>
-                        <td>09-10-2022</td>
-                      </tr>
+                      <% } %>
                     </tbody>
                   </table>
                 </div>

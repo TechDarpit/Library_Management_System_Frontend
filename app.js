@@ -2,7 +2,7 @@ const path = require('path');
 require('dotenv').config();
 
 const express = require('express');
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -10,12 +10,13 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 const adminData = require('./routes/admin');
-const db = require('./database_connection/database');
-// const sequelize = require('./database_connection/database');
 
-const { Sequelize, sequelize } = db;
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/admin', adminData.routes);
