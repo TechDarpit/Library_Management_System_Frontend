@@ -35,7 +35,7 @@ module.exports = {
         defaultValue: 1,
         comment: '0 => Inactive, 1 => Active, 2 => Deleted',
       },
-      role_id: {
+      role: {
         type: Sequelize.INTEGER(20).UNSIGNED,
         defaultValue: 2,
         comment: '1 => Admin, 2 => User',

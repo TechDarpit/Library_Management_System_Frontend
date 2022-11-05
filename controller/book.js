@@ -1,7 +1,8 @@
-const Books = require('../model/Books');
+const models = require('../models/index');
+const Book = models.Book;
 
 exports.bookList = async (req, res, next) => {
-  const booksList = await Books.findAll();
+  const booksList = await Book.findAll();
 
   res.render('books', {
     pageTitle: 'Books',

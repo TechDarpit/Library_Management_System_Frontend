@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      User.hasMany(models.Issued_Books, { foreignKey: 'user_id' });
     }
   }
   User.init(
@@ -38,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TINYINT(1),
         defaultValue: 1,
       },
-      role_id: {
+      role: {
         type: DataTypes.INTEGER(20).UNSIGNED,
         defaultValue: 2,
       },

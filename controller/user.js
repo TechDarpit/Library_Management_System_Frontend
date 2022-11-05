@@ -1,5 +1,8 @@
-const Register = require('../model/register');
-const User = require('../Model/User');
+// const User = require('../models/user');
+
+const models = require('../models/index');
+
+const User = models.User;
 
 exports.usersList = async (req, res, next) => {
   const usersList = await User.findAll({ where: { role: 2 } });
