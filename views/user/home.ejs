@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./user-includes/header.ejs') %>
+  </head>
+
+  <body>
+    <!-- ======= Page Header ======= -->
+    <%- include('./user-includes/page-header.ejs') %>
+    <!-- ======= End Page Header ======= -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex justify-content-center align-items-center">
+      <div
+        class="container position-relative"
+        data-aos="zoom-in"
+        data-aos-delay="100"
+      >
+        <h1>Learning Today,<br />Leading Tomorrow</h1>
+        <h2>
+          We are team of talented designers making websites with Bootstrap
+        </h2>
+        <a href="books" class="btn-get-started">Get Started</a>
+      </div>
+    </section>
+    <!-- ======= End Hero ======= -->
+
+    <main id="main">
+      <!-- ======= About Section ======= -->
+      <%- include('./user-includes/about-section.ejs') %>
+      <!-- ======= End About Section ======= -->
+
+      <!-- ======= Counts Section ======= -->
+      <%- include('./user-includes/counts-section.ejs') %>
+      <!-- End Counts Section -->
+
+      <!-- ======= Popular Books Section ======= -->
+      <section id="popular-courses" class="courses">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Books</h2>
+            <p>Popular Books</p>
+          </div>
+
+          <div class="row" data-aos="zoom-in" data-aos-delay="100">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+              <div class="course-item">
+                <img
+                  src="/assets/img/course-1.jpg"
+                  class="img-fluid"
+                  alt="..."
+                />
+                <div class="course-content">
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-3"
+                  >
+                    <h4>Web Development</h4>
+                  </div>
+
+                  <h3><a href="course-details.html">Website Design</a></h3>
+
+                  <div
+                    class="trainer d-flex justify-content-between align-items-center"
+                  >
+                    <div class="trainer-profile d-flex align-items-center">
+                      <img
+                        src="/assets/img/author.jpg"
+                        class="img-fluid"
+                        alt="Author"
+                      />
+                      <span>Antonio</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Course Item-->
+
+            <div
+              class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0"
+            >
+              <div class="course-item">
+                <img
+                  src="/assets/img/course-2.jpg"
+                  class="img-fluid"
+                  alt="..."
+                />
+                <div class="course-content">
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-3"
+                  >
+                    <h4>Marketing</h4>
+                  </div>
+
+                  <h3>
+                    <a href="course-details.html">Search Engine Optimization</a>
+                  </h3>
+
+                  <div
+                    class="trainer d-flex justify-content-between align-items-center"
+                  >
+                    <div class="trainer-profile d-flex align-items-center">
+                      <img
+                        src="/assets/img/author.jpg"
+                        class="img-fluid"
+                        alt=""
+                      />
+                      <span>Lana</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Course Item-->
+
+            <div
+              class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0"
+            >
+              <div class="course-item">
+                <img
+                  src="/assets/img/course-2.jpg"
+                  class="img-fluid"
+                  alt="..."
+                />
+                <div class="course-content">
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-3"
+                  >
+                    <h4>Marketing</h4>
+                  </div>
+
+                  <h3>
+                    <a href="course-details.html">Search Engine Optimization</a>
+                  </h3>
+
+                  <div
+                    class="trainer d-flex justify-content-between align-items-center"
+                  >
+                    <div class="trainer-profile d-flex align-items-center">
+                      <img
+                        src="/assets/img/author.jpg"
+                        class="img-fluid"
+                        alt=""
+                      />
+                      <span>Lana</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Course Item-->
+
+            <div
+              class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0"
+            >
+              <div class="course-item">
+                <img
+                  src="/assets/img/course-3.jpg"
+                  class="img-fluid"
+                  alt="..."
+                />
+                <div class="course-content">
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-3"
+                  >
+                    <h4>Content</h4>
+                  </div>
+
+                  <h3><a href="course-details.html">Copywriting</a></h3>
+
+                  <div
+                    class="trainer d-flex justify-content-between align-items-center"
+                  >
+                    <div class="trainer-profile d-flex align-items-center">
+                      <img
+                        src="/assets/img/author.jpg"
+                        class="img-fluid"
+                        alt=""
+                      />
+                      <span>Brandon</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Course Item-->
+          </div>
+        </div>
+      </section>
+      <!-- End Popular Books Section -->
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer & Top to Scroll ======= -->
+    <%- include('./user-includes/footer.ejs') %>
+    <!-- ======= End Footer & Top to Scroll ======= -->
+
+    <!-- ======= Common JS Files Includes ======= -->
+    <%- include('./user-includes/js-includes.ejs') %>
+    <!-- ======= End Common JS Files Includes ======= -->
+  </body>
+</html>

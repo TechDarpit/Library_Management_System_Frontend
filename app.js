@@ -9,7 +9,9 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-const adminData = require('./routes/admin');
+const adminData = require('./routes/admin/admin');
+
+const LmsData = require('./routes/user/library-management-system');
 
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,14 +25,18 @@ app.use(express.static('images'));
 app.use('/images', express.static('images'));
 
 app.use('/admin', adminData.routes);
+
+app.use('/library-management-system', LmsData.routes);
 // app.use(shopRoutes);
 
 app.get('/', (req, res, next) => {
-  res.redirect('/admin/dashboard');
+  res.redirect('library-management-system/');
 });
 
 app.use((req, res, next) => {
-  res.status(404).render('404', { pageTitle: 'Page Not Found', path: '/404' });
+  res
+    .status(404)
+    .render('./user/404', { pageTitle: 'Page Not Found', path: '/404' });
 });
 
 const port = process.env.PORT_NUMBER;
