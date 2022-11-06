@@ -1,6 +1,6 @@
 exports.loginPage = (req, res, next) => {
   try {
-    res.render('admin-login', {
+    res.render('./admin/admin-login', {
       pageTitle: 'Admin Login',
       path: '/admin/login',
       formsCSS: true,
@@ -18,7 +18,7 @@ exports.login = (req, res, next) => {
 
     res.redirect('/admin/dashboard');
 
-    // res.render('admin-login', {
+    // res.render('./admin/admin-login', {
     //   pageTitle: 'Admin Login',
     //   path: '/admin/login',
     //   formsCSS: true,
@@ -32,7 +32,7 @@ exports.login = (req, res, next) => {
 
 exports.forgotPassword = (req, res, next) => {
   try {
-    res.render('admin-forgot-password', {
+    res.render('./admin/admin-forgot-password', {
       pageTitle: 'Admin Forgot Password',
       path: '/admin/forgot-password',
       formsCSS: true,
@@ -46,7 +46,7 @@ exports.forgotPassword = (req, res, next) => {
 
 exports.dashboard = (req, res, next) => {
   try {
-    res.render('dashboard', {
+    res.render('./admin/dashboard', {
       pageTitle: 'Dashboard',
       path: '/admin/dashboard',
       formsCSS: true,

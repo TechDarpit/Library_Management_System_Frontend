@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../includes/common-css-includes.ejs') %>
+
+    <!-- Custom styles List (table) this page -->
+    <link
+      href="/vendor/datatables/dataTables.bootstrap4.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <%- include('../includes/sidebar.ejs') %>
+
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <%- include('../includes/topbar.ejs') %>
+
+          <!-- End of Topbar -->
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <div
+              class="d-sm-flex align-items-center justify-content-between mb-4"
+            >
+              <h1 class="h3 mb-0 text-gray-800">Edit Book</h1>
+            </div>
+
+            <!-- Page Content  -->
+
+            <div class="card shadow mb-4">
+              <div class="card-body">
+                <form
+                  name="newProductForm"
+                  class="needs-validation"
+                  method="POST"
+                  action="http://localhost:5000/admin/books/<%= book.id %>/edit"
+                  novalidate
+                >
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input
+                          name="title"
+                          class="form-control"
+                          type="text"
+                          placeholder="Enter Book Title"
+                          value="<%= book.title %>"
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Please Enter Valid Book Title.
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="author_name" class="form-label"
+                          >Author Name</label
+                        >
+                        <input
+                          name="author_name"
+                          class="form-control"
+                          type="text"
+                          placeholder="Enter Author Name"
+                          value="<%= book.author_name %>"
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Please Enter Valid Author Name.
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="BookDescription" class="form-label"
+                          >Description</label
+                        >
+                        <textarea
+                          name="description"
+                          id="BookDescription"
+                          class="form-control"
+                          rows="4"
+                          placeholder="Enter Book Description"
+                          required
+                        >
+<%= book.description %></textarea
+                        >
+                        <div class="invalid-feedback">
+                          Please Enter Valid Book Description.
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="quantity" class="form-label"
+                          >Quantity</label
+                        >
+                        <input
+                          name="quantity"
+                          class="form-control"
+                          type="number"
+                          min="1"
+                          placeholder="Enter Book Quantity"
+                          value="<%= book.total_quantity %>"
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Please Enter Valid Book Quantity.
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="book_image" class="form-label"
+                          >Cover Image</label
+                        >
+                        <input
+                          class="form-control"
+                          type="file"
+                          id="book_image"
+                          name="book_image"
+                          accept="image/*"
+                          value="<%= book.image %>"
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Please Uplode Book Image.
+                        </div>
+                      </div>
+
+                      <div class="FormBtnMarginTop">
+                        <button class="btn btn-success" type="submit">
+                          Update
+                        </button>
+                        <a href="/admin/books" class="btn btn-danger"
+                          >Discard</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <%- include('../includes/footer.ejs') %>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button & Logout Modal-->
+    <%- include('../includes/scroll-logout-modal.ejs') %>
+
+    <!-- Import Common JS Files  -->
+    <%- include('../includes/common-js-includes.ejs') %>
+
+    <!-- Page level plugins (Dashboard) -->
+    <script src="/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom (Dashboard) scripts -->
+    <script src="/js/demo/chart-area-demo.js"></script>
+    <script src="/js/demo/chart-pie-demo.js"></script>
+
+    <!-- Page level plugins List (Table)  -->
+    <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom List (Table) scripts -->
+    <script src="/js/demo/datatables-demo.js"></script>
+
+    <!-- Page level custom Edit User page scripts -->
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function () {
+        'use strict';
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation');
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms).forEach(function (form) {
+          form.addEventListener(
+            'submit',
+            function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add('was-validated');
+            },
+            false
+          );
+        });
+      })();
+    </script>
+
+    <!-- Page level custom Add Book page scripts -->
+    <script>
+      $(document).on('click', '.browse', function () {
+        var file = $(this).parents().find('.file');
+        file.trigger('click');
+      });
+      $('input[type="file"]').change(function (e) {
+        var fileName = e.target.files[0].name;
+        $('#file3').val(fileName);
+
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          // get loaded data and render thumbnail.
+          document.getElementById('preview').src = e.target.result;
+        };
+        // read the image file as a data URL.
+        reader.readAsDataURL(this.files[0]);
+      });
+    </script>
+  </body>
+</html>

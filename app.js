@@ -19,6 +19,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(express.static('images'));
+app.use('/images', express.static('images'));
+
 app.use('/admin', adminData.routes);
 // app.use(shopRoutes);
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('includes/common-css-includes.ejs') %>
+    <%- include('../includes/common-css-includes.ejs') %>
 
     <!-- Custom styles List (table) this page -->
     <link
@@ -14,7 +14,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
       <!-- Sidebar -->
-      <%- include('includes/sidebar.ejs') %>
+      <%- include('../includes/sidebar.ejs') %>
 
       <!-- End of Sidebar -->
 
@@ -23,95 +23,27 @@
         <!-- Main Content -->
         <div id="content">
           <!-- Topbar -->
-          <%- include('includes/topbar.ejs') %>
+          <%- include('../includes/topbar.ejs') %>
 
           <!-- End of Topbar -->
 
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-            <!-- <div
+            <div
               class="d-sm-flex align-items-center justify-content-between mb-4"
             >
-              <h1 class="h3 mb-0 text-gray-800">Books List</h1>
-            </div> -->
+              <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            </div>
 
             <!-- Page Content  -->
-
-            <!-- DataTales Example -->
-            <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                <h5 class="m-0 font-weight-bold text-primary">Books</h5>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table
-                    class="table table-bordered"
-                    id="dataTable"
-                    width="100%"
-                    cellspacing="0"
-                  >
-                    <thead>
-                      <tr>
-                        <th>Title</th>
-                        <th>Author Name</th>
-                        <th>Total Qauntity</th>
-                        <th>Available Qauntity</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-
-                    <tbody>
-                      <% for (let book of books) { %>
-                      <tr>
-                        <td>
-                          <a
-                            href="/admin/books/<%= book.id %>"
-                            style="color: gray"
-                            ><%= book.title %></a
-                          >
-                        </td>
-                        <td><%= book.author_name %></td>
-                        <td><%= book.total_quantity %></td>
-                        <td><%= book.available_quantity %></td>
-                        <td>
-                          <%= book.status === 1 ? 'Active' : 'Inactive' %>
-                        </td>
-                        <td>
-                          <a
-                            href="/admin/books/<%= book.id %>"
-                            class="btn btn-outline-primary btn-circle btn-sm"
-                          >
-                            <i class="fas fa-info"></i>
-                          </a>
-                          <a
-                            href="/admin/books/<%= book.id %>/edit"
-                            class="btn btn-outline-primary btn-circle btn-sm"
-                          >
-                            <i class="fas fa-edit"></i>
-                          </a>
-                          <a
-                            href="#"
-                            class="btn btn-outline-primary btn-circle btn-sm"
-                          >
-                            <i class="fas fa-trash"></i>
-                          </a>
-                        </td>
-                      </tr>
-                      <% } %>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
           </div>
           <!-- /.container-fluid -->
         </div>
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        <%- include('includes/footer.ejs') %>
+        <%- include('../includes/footer.ejs') %>
         <!-- End of Footer -->
       </div>
       <!-- End of Content Wrapper -->
@@ -119,10 +51,10 @@
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button & Logout Modal-->
-    <%- include('includes/scroll-logout-modal.ejs') %>
+    <%- include('../includes/scroll-logout-modal.ejs') %>
 
     <!-- Import Common JS Files  -->
-    <%- include('includes/common-js-includes.ejs') %>
+    <%- include('../includes/common-js-includes.ejs') %>
 
     <!-- Page level plugins (Dashboard) -->
     <script src="/vendor/chart.js/Chart.min.js"></script>

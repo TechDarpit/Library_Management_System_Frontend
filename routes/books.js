@@ -12,6 +12,10 @@ router.post('/add', bookController.addBook);
 
 router.get('/:book_id', bookController.bookDetails);
 
-router.get('/:book_id/edit', bookController.editBook);
+router.post('/:book_id/delete', bookController.bookDelete);
+
+router.get('/:book_id/edit', bookController.editBookPage);
+
+router.post('/:book_id/edit', bookController.editBook);
 
 exports.routes = router;

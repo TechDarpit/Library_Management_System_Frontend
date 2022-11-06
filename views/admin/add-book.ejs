@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('includes/common-css-includes.ejs') %>
+    <%- include('../includes/common-css-includes.ejs') %>
 
     <!-- Custom styles List (table) this page -->
     <link
@@ -14,7 +14,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
       <!-- Sidebar -->
-      <%- include('includes/sidebar.ejs') %>
+      <%- include('../includes/sidebar.ejs') %>
 
       <!-- End of Sidebar -->
 
@@ -23,7 +23,7 @@
         <!-- Main Content -->
         <div id="content">
           <!-- Topbar -->
-          <%- include('includes/topbar.ejs') %>
+          <%- include('../includes/topbar.ejs') %>
 
           <!-- End of Topbar -->
 
@@ -45,10 +45,11 @@
                   class="needs-validation"
                   method="POST"
                   action="http://localhost:5000/admin/books/add"
+                  enctype="multipart/form-data"
                   novalidate
                 >
                   <div class="row">
-                    <div class="col-7">
+                    <div class="col-12">
                       <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input
@@ -113,6 +114,23 @@
                         </div>
                       </div>
 
+                      <div class="mb-3">
+                        <label for="book_image" class="form-label"
+                          >Cover Image</label
+                        >
+                        <input
+                          class="form-control"
+                          type="file"
+                          id="book_image"
+                          name="book_image"
+                          accept="image/*"
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Please Uplode Book Image.
+                        </div>
+                      </div>
+
                       <div class="FormBtnMarginTop">
                         <button href="/" class="btn btn-success" type="submit">
                           Add Book
@@ -120,37 +138,6 @@
                         <a href="/admin/books" class="btn btn-danger"
                           >Discard</a
                         >
-                      </div>
-                    </div>
-                    <div class="col-5">
-                      <div class="col-sm-10">
-                        <label for="title" class="form-label"
-                          >Cover Image</label
-                        >
-                        <div class="custom-file">
-                          <input
-                            name="book_image"
-                            type="file"
-                            class="btn custom-file-input browse"
-                            id="book_image"
-                            accept="image/*"
-                            required
-                          />
-                          <label class="custom-file-label" for="book_image"
-                            >Choose Image</label
-                          >
-                          <div class="invalid-feedback">
-                            Please Uplode Book Image.
-                          </div>
-                        </div>
-                      </div>
-                      <br />
-                      <div class="col-sm-10">
-                        <img
-                          src="https://placehold.it/80x80"
-                          id="preview"
-                          class="img-thumbnail"
-                        />
                       </div>
                     </div>
                   </div>
@@ -163,7 +150,7 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        <%- include('includes/footer.ejs') %>
+        <%- include('../includes/footer.ejs') %>
         <!-- End of Footer -->
       </div>
       <!-- End of Content Wrapper -->
@@ -171,10 +158,10 @@
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button & Logout Modal-->
-    <%- include('includes/scroll-logout-modal.ejs') %>
+    <%- include('../includes/scroll-logout-modal.ejs') %>
 
     <!-- Import Common JS Files  -->
-    <%- include('includes/common-js-includes.ejs') %>
+    <%- include('../includes/common-js-includes.ejs') %>
 
     <!-- Page level Custom Form scripts -->
     <script>

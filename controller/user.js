@@ -7,7 +7,7 @@ const User = models.User;
 exports.usersList = async (req, res, next) => {
   const usersList = await User.findAll({ where: { role: 2 } });
 
-  res.render('users', {
+  res.render('./admin/users', {
     pageTitle: 'Usesrs',
     path: '/admin/users',
     formsCSS: true,
@@ -24,7 +24,7 @@ exports.userDetails = async (req, res, next) => {
   });
   console.log('\n\nuserData: ', JSON.stringify(userData));
 
-  res.render('user-details', {
+  res.render('./admin/user-details', {
     pageTitle: 'User Details',
     path: '/admin/users/:user_id',
     formsCSS: true,
@@ -41,7 +41,7 @@ exports.editUser = async (req, res, next) => {
   });
   console.log('\n\nuserData: ', JSON.stringify(userData));
 
-  res.render('edit-user', {
+  res.render('./admin/edit-user', {
     pageTitle: 'Edit User',
     path: '/admin/users/:user_id/edit',
     formsCSS: true,
