@@ -23,6 +23,10 @@ module.exports = {
         },
         allowNull: false,
       },
+      password: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       mobile_number: {
         type: Sequelize.INTEGER,
       },

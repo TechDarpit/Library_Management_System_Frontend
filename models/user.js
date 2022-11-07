@@ -22,10 +22,14 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       email: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(255),
         set(val) {
           this.setDataValue('email', val.toLowerCase());
         },
+        allowNull: false,
+      },
+      password: {
+        type: DataTypes.STRING(255),
         allowNull: false,
       },
       mobile_number: {

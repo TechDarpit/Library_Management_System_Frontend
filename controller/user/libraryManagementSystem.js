@@ -1,4 +1,4 @@
-// const User = require('../models/user');
+const bcrypt = require('bcrypt');
 
 const models = require('../../models/index');
 
@@ -18,19 +18,22 @@ exports.loginPage = (req, res, next) => {
   }
 };
 
-exports.login = (req, res, next) => {
+exports.login = async (req, res, next) => {
   try {
     console.log('req: ', req.body);
+    const { email, password } = req.body;
 
-    res.redirect('library-management-system/home');
+    const user = await User.findOne({
+      where: { email: email, role: 2, status: 1 },
+      attributes: ['email', 'password'],
+    });
 
-    // res.render('./admin/admin-login', {
-    //   pageTitle: 'Admin Login',
-    //   path: '/admin/login',
-    //   formsCSS: true,
-    //   productCSS: true,
-    //   activeAddProduct: true,
-    // });
+    const passwordMatch = bcrypt.compareSync(password, user.password);
+    if (passwordMatch) {
+      res.redirect('/library-management-system/');
+    } else {
+      res.redirect('/');
+    }
   } catch (error) {
     console.log('error: ', error);
   }
@@ -50,19 +53,17 @@ exports.registerPage = (req, res, next) => {
   }
 };
 
-exports.register = (req, res, next) => {
+exports.register = async (req, res, next) => {
   try {
-    console.log('req: ', req.body);
+    const { first_name, last_name, email, password, confirmPassword } =
+      req.body;
+    const hash_password = bcrypt.hashSync(password, 12);
 
-    res.redirect('/login');
+    const userData = { first_name, last_name, email, password: hash_password };
 
-    // res.render('./admin/admin-login', {
-    //   pageTitle: 'Admin Login',
-    //   path: '/admin/login',
-    //   formsCSS: true,
-    //   productCSS: true,
-    //   activeAddProduct: true,
-    // });
+    const userRegistered = await User.create(userData);
+
+    res.redirect('/library-management-system/login');
   } catch (error) {
     console.log('error: ', error);
   }
