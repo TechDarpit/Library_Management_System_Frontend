@@ -7,47 +7,37 @@
     <nav id="navbar" class="navbar order-last order-lg-0">
       <ul>
         <li>
-          <a
-            class="<%= path === '/library-management-system/' ? 'active' : '' %>"
-            href="/"
-            >Home</a
-          >
+          <a class="<%= path === '/library-management-system/' ? 'active' : '' %>" href="/">Home</a>
         </li>
         <li>
-          <a
-            class="<%= path === '/library-management-system/about-us' ? 'active' : '' %>"
-            href="about-us"
-            >About Us</a
-          >
+          <a class="<%= path === '/library-management-system/about-us' ? 'active' : '' %>" href="/library-management-system/about-us">About Us</a>
         </li>
         <li>
-          <a
-            class="<%= path === '/library-management-system/books' ? 'active' : '' %>"
-            href="books"
-            >Books</a
-          >
+          <a class="<%= path === '/library-management-system/books' ? 'active' : '' %>" href="/library-management-system/books">Books</a>
         </li>
         <li>
-          <a
-            class="<%= path === '/library-management-system/contact-us' ? 'active' : '' %>"
-            href="contact-us"
-            >Contact Us</a
-          >
+          <a class="<%= path === '/library-management-system/contact-us' ? 'active' : '' %>" href="/library-management-system/contact-us">Contact Us</a>
         </li>
       </ul>
       <li href="" class="dropdown get-started-btn">
-        <!-- <a href="#"
-          ><span style="color: #fff">Darpit Patel</span>
-          <i style="color: #fff" class="bi bi-chevron-down"></i
-        ></a>
-        <ul>
-          <li><a href="#">Profile</a></li>
-          <li><a href="/library-management-system/login">Logout</a></li>
-        </ul> -->
+        <% if (isAuthenticated) {%>
 
-        <a href="register"
-          ><span style="color: #fff">Login / Signup</span> </i
-        ></a>
+        <a><span style="color: #fff"><%= userName ? userName : 'NA' %></span>
+          <i style="color: #fff" class="bi bi-chevron-down"></i></a>
+        <ul>
+          <!-- <li><a href="#">Profile</a></li> -->
+          <li><a href="/library-management-system/login">Logout</a></li>
+          <!-- <li>
+          <form action="" method="post">
+            <button type="submit">Logout</button>
+          </form>
+        </li> -->
+        </ul>
+        <%} else {%>
+
+        <a href="/library-management-system/register"><span style="color: #fff">Login / Signup</span> </i></a>
+        <% } %>
+
       </li>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>

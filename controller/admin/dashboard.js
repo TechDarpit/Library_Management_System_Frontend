@@ -5,7 +5,8 @@ exports.loginPage = (req, res, next) => {
       path: '/admin/login',
       formsCSS: true,
       productCSS: true,
-      activeAddProduct: true,
+      isAuthenticated: req.isLoggedIn,
+      userName: req.userName,
     });
   } catch (error) {
     console.log('error: ', error);
@@ -14,7 +15,7 @@ exports.loginPage = (req, res, next) => {
 
 exports.login = (req, res, next) => {
   try {
-    console.log('req: ', req.body);
+    console.log('req == : ', req.body);
 
     res.redirect('/admin/dashboard');
 
@@ -23,7 +24,8 @@ exports.login = (req, res, next) => {
     //   path: '/admin/login',
     //   formsCSS: true,
     //   productCSS: true,
-    //   activeAddProduct: true,
+    //   isAuthenticated: req.isLoggedIn,
+    // userName: req.userName,
     // });
   } catch (error) {
     console.log('error: ', error);
@@ -37,7 +39,8 @@ exports.forgotPassword = (req, res, next) => {
       path: '/admin/forgot-password',
       formsCSS: true,
       productCSS: true,
-      activeAddProduct: true,
+      isAuthenticated: req.isLoggedIn,
+      userName: req.userName,
     });
   } catch (error) {
     console.log('error: ', error);
@@ -51,7 +54,8 @@ exports.dashboard = (req, res, next) => {
       path: '/admin/dashboard',
       formsCSS: true,
       productCSS: true,
-      activeAddProduct: true,
+      isAuthenticated: req.isLoggedIn,
+      userName: req.userName,
     });
   } catch (error) {
     console.log('error: ', error);

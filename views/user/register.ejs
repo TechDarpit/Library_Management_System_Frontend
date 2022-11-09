@@ -34,7 +34,7 @@
                         required
                       />
                       <div class="invalid-feedback">
-                        Please enter valid first name.
+                        Please enter valid first name
                       </div>
                     </div>
                     <div class="col-sm-6">
@@ -44,20 +44,40 @@
                         id="last_name"
                         name="last_name"
                         placeholder="Last Name"
+                        required
                       />
+                      <div class="invalid-feedback">
+                        Please enter valid last name
+                      </div>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <input
-                      type="email"
-                      class="form-control form-control-user"
-                      id="email"
-                      name="email"
-                      placeholder="Email Address"
-                      required
-                    />
-                    <div class="invalid-feedback">
-                      Please enter valid email.
+                  <div class="form-group row">
+                    <div class="col-sm-6">
+                      <input
+                        type="email"
+                        class="form-control form-control-user"
+                        id="email"
+                        name="email"
+                        placeholder="Email Address"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Please enter valid email
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <input
+                        type="tel"
+                        class="form-control form-control-user"
+                        id="mobile_number"
+                        name="mobile_number"
+                        placeholder="Mobile Number"
+                        pattern="[6-9]{1}[0-9]{9}"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Please enter valid mobile number
+                      </div>
                     </div>
                   </div>
                   <div class="form-group row">
@@ -72,7 +92,7 @@
                         required
                       />
                       <div class="invalid-feedback">
-                        Please enter valid password.
+                        Please enter valid password
                       </div>
                     </div>
                     <div class="col-sm-6">
@@ -84,9 +104,7 @@
                         placeholder="Confirm Password"
                         required
                       />
-                      <div class="invalid-feedback">
-                        Passwords do not match.
-                      </div>
+                      <div class="invalid-feedback">Passwords do not match</div>
                     </div>
                   </div>
                   <button

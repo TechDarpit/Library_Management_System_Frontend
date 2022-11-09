@@ -12,7 +12,8 @@ exports.usersList = async (req, res, next) => {
     path: '/admin/users',
     formsCSS: true,
     productCSS: true,
-    activeAddProduct: true,
+    isAuthenticated: req.isLoggedIn,
+    userName: req.userName,
     users: usersList,
   });
 };
@@ -29,7 +30,8 @@ exports.userDetails = async (req, res, next) => {
     path: '/admin/users/:user_id',
     formsCSS: true,
     productCSS: true,
-    activeAddProduct: true,
+    isAuthenticated: req.isLoggedIn,
+    userName: req.userName,
     user: userData,
   });
 };
@@ -46,7 +48,8 @@ exports.editUser = async (req, res, next) => {
     path: '/admin/users/:user_id/edit',
     formsCSS: true,
     productCSS: true,
-    activeAddProduct: true,
+    isAuthenticated: req.isLoggedIn,
+    userName: req.userName,
     user: userData,
   });
 };

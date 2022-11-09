@@ -9,7 +9,8 @@ exports.booksPage = (req, res, next) => {
       path: '/library-management-system/books',
       formsCSS: true,
       productCSS: true,
-      activeAddProduct: true,
+      isAuthenticated: req.isLoggedIn,
+      userName: req.userName,
     });
   } catch (error) {
     console.log('error: ', error);
@@ -23,7 +24,8 @@ exports.bookDetailsPage = (req, res, next) => {
       path: '/library-management-system/book/book-details',
       formsCSS: true,
       productCSS: true,
-      activeAddProduct: true,
+      isAuthenticated: req.isLoggedIn,
+      userName: req.userName,
     });
   } catch (error) {
     console.log('error: ', error);
@@ -44,7 +46,8 @@ exports.bookDetails = async (req, res, next) => {
     //   path: '/admin/books/:book_id',
     //   formsCSS: true,
     //   productCSS: true,
-    //   activeAddProduct: true,
+    //   isAuthenticated: req.isLoggedIn,
+    // userName: req.userName,
     //   book: bookData,
     // });
   } catch (error) {

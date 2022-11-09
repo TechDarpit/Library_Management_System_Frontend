@@ -11,7 +11,8 @@ exports.bookList = async (req, res, next) => {
       path: '/admin/books',
       formsCSS: true,
       productCSS: true,
-      activeAddProduct: true,
+      isAuthenticated: req.isLoggedIn,
+      userName: req.userName,
       books: booksList,
     });
   } catch (error) {
@@ -26,7 +27,8 @@ exports.addBookPage = async (req, res, next) => {
       path: '/admin/books/add',
       formsCSS: true,
       productCSS: true,
-      activeAddProduct: true,
+      isAuthenticated: req.isLoggedIn,
+      userName: req.userName,
     });
   } catch (error) {
     console.log('error addBookPage: ', error);
@@ -35,10 +37,8 @@ exports.addBookPage = async (req, res, next) => {
 
 exports.addBook = async (req, res, next) => {
   try {
+    console.log('req.body Add book : ', req.body);
     const { title, author_name, description, quantity, book_image } = req.body;
-
-    const book_image_path = req.file;
-    console.log('book_image_path: ', book_image_path);
 
     const tempAddBook = {
       title,
@@ -46,7 +46,7 @@ exports.addBook = async (req, res, next) => {
       description,
       total_quantity: quantity,
       available_quantity: quantity,
-      image: book_image_path,
+      image: req.file,
     };
 
     // const addBook = await Book.create(tempAddBook);
@@ -54,6 +54,14 @@ exports.addBook = async (req, res, next) => {
     // res.redirect('/admin/books');
   } catch (error) {
     console.log('error addBook: ', error);
+  }
+};
+
+exports.addBookInDB = async (req, res, next) => {
+  try {
+    console.log('req: ', req.body);
+  } catch (error) {
+    console.log('error addBookInDB: ', error);
   }
 };
 
@@ -74,7 +82,8 @@ exports.bookDetails = async (req, res, next) => {
       path: '/admin/books/:book_id',
       formsCSS: true,
       productCSS: true,
-      activeAddProduct: true,
+      isAuthenticated: req.isLoggedIn,
+      userName: req.userName,
       book: bookData,
     });
   } catch (error) {
@@ -93,7 +102,8 @@ exports.editBookPage = async (req, res, next) => {
     path: '/admin/books/:book_id',
     formsCSS: true,
     productCSS: true,
-    activeAddProduct: true,
+    isAuthenticated: req.isLoggedIn,
+    userName: req.userName,
     book: bookData,
   });
 };

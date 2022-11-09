@@ -5,6 +5,7 @@ const router = express.Router();
 const booksRoutes = require('./books');
 
 const LMSController = require('../../controller/user/libraryManagementSystem');
+const { auth } = require('../../util/auth');
 
 router.get('/login', LMSController.loginPage);
 
@@ -16,7 +17,7 @@ router.post('/register', LMSController.register);
 
 router.get('/forgot-password', LMSController.forgotPasswordPage);
 
-router.get('/', LMSController.homePage);
+router.get('/', auth, LMSController.homePage);
 
 router.get('/about-us', LMSController.aboutUsPage);
 
