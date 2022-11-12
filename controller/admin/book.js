@@ -1,6 +1,9 @@
+const { sequelize } = require('../../models/index');
 const models = require('../../models/index');
 const Book = models.Book;
 const Issued_Books = models.Issued_Books;
+
+const { Op } = require('sequelize');
 
 exports.bookList = async (req, res, next) => {
   try {
@@ -37,8 +40,8 @@ exports.addBookPage = async (req, res, next) => {
 
 exports.addBook = async (req, res, next) => {
   try {
-    console.log('req.body Add book : ', req.body);
-    const { title, author_name, description, quantity, book_image } = req.body;
+    const { title, author_name, description, category, quantity, image } =
+      req.body;
 
     const tempAddBook = {
       title,
@@ -46,22 +49,16 @@ exports.addBook = async (req, res, next) => {
       description,
       total_quantity: quantity,
       available_quantity: quantity,
-      image: req.file,
+      category: category,
+      image: req.file.path,
     };
+    console.log('\n\ntempAddBook: ', tempAddBook);
 
-    // const addBook = await Book.create(tempAddBook);
-    // console.log('\n\naddBook: ', addBook);
-    // res.redirect('/admin/books');
+    const addBook = await Book.create(tempAddBook);
+    console.log('\n\naddBook: ', addBook);
+    res.redirect('/admin/books');
   } catch (error) {
     console.log('error addBook: ', error);
-  }
-};
-
-exports.addBookInDB = async (req, res, next) => {
-  try {
-    console.log('req: ', req.body);
-  } catch (error) {
-    console.log('error addBookInDB: ', error);
   }
 };
 
@@ -112,7 +109,8 @@ exports.editBook = async (req, res, next) => {
   try {
     const books_id = req.params.book_id;
 
-    const { title, author_name, description, quantity, book_image } = req.body;
+    const { title, author_name, description, category, quantity, image } =
+      req.body;
 
     const tempUpdateBook = {
       title,
@@ -120,7 +118,8 @@ exports.editBook = async (req, res, next) => {
       description,
       total_quantity: quantity,
       available_quantity: quantity,
-      image: book_image,
+      category: category,
+      image: req.file?.path ? req.file.path : undefined,
     };
 
     const updateBook = await Book.update(tempUpdateBook, {
@@ -136,15 +135,19 @@ exports.editBook = async (req, res, next) => {
 exports.bookDelete = async (req, res, next) => {
   try {
     const books_id = req.params.book_id;
-    console.log('books_id: ', books_id);
 
     deleteStatus = {
       status: 2,
     };
 
     const deleteBook = await Book.update(deleteStatus, {
-      where: { id: books_id },
+      where: {
+        id: books_id,
+        available_quantity: { [Op.eq]: sequelize.col('total_quantity') },
+      },
     });
+
+    // console.log('deleteBook: ', !!deleteBook[0]);
 
     res.redirect('/admin/books');
   } catch (error) {

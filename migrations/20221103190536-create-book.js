@@ -23,6 +23,10 @@ module.exports = {
       image: {
         type: Sequelize.STRING,
       },
+      category: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       total_quantity: {
         type: Sequelize.INTEGER,
         allowNull: false,

@@ -33,9 +33,23 @@
             <div
               class="d-sm-flex align-items-center justify-content-between mb-4"
             >
-              <h1 class="h3 mb-0 text-gray-800">
-                <%= book.title %> (Book title)
-              </h1>
+              <h1 class="h3 mb-0 text-gray-800"><%= book.title %></h1>
+              <div class="row">
+                <a
+                  href="/admin/books/<%= book.id %>/edit"
+                  class="btn btn-outline-primary btn-sm mr-2"
+                >
+                  <i class="fas fa-edit"></i> Edit
+                </a>
+                <form
+                  method="POST"
+                  action="http://localhost:5000/admin/books/<%= book.id %>/delete"
+                >
+                  <button type="submit" class="btn btn-outline-danger btn-sm">
+                    <i class="fas fa-trash"></i> Delete
+                  </button>
+                </form>
+              </div>
             </div>
 
             <!-- Book Details Page -->
@@ -44,40 +58,66 @@
                 <h6 class="m-0 font-weight-bold text-primary">Book Details</h6>
               </div>
               <div class="card-body">
-                <table class="table table-sm table-borderless">
-                  <tbody>
-                    <tr>
-                      <td>Title</td>
-                      <td><%= book.title %></td>
-                    </tr>
-                    <tr>
-                      <td>Author Name</td>
-                      <td><%= book.author_name %></td>
-                    </tr>
-                    <tr>
-                      <td>Description</td>
-                      <td><%= book.description %></td>
-                    </tr>
-                    <tr>
-                      <td>Total Qauntity</td>
-                      <td><%= book.total_quantity %></td>
-                    </tr>
-                    <tr>
-                      <td>Available Qauntity</td>
-                      <td><%= book.available_quantity %></td>
-                    </tr>
-                    <tr>
-                      <td>Issued Qauntity</td>
-                      <td>
-                        <%= book.total_quantity-book.available_quantity %>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Status</td>
-                      <td><%= book.status === 1 ? 'Active' : 'Inactive' %></td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="row">
+                  <div class="col-md-7">
+                    <table class="table table-sm table-borderless">
+                      <tbody>
+                        <tr>
+                          <td>Title</td>
+                          <td><%= book.title %></td>
+                        </tr>
+                        <tr>
+                          <td>Author Name</td>
+                          <td><%= book.author_name %></td>
+                        </tr>
+                        <tr>
+                          <td>Description</td>
+                          <td><%= book.description %></td>
+                        </tr>
+                        <tr>
+                          <td>Category</td>
+                          <td><%= book.category %></td>
+                        </tr>
+                        <tr>
+                          <td>Total Qauntity</td>
+                          <td><%= book.total_quantity %></td>
+                        </tr>
+                        <tr>
+                          <td>Available Qauntity</td>
+                          <td><%= book.available_quantity %></td>
+                        </tr>
+                        <tr>
+                          <td>Issued Qauntity</td>
+                          <td>
+                            <%= book.total_quantity-book.available_quantity %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Status</td>
+                          <td>
+                            <%= book.status === 1 ? 'Active' : 'Inactive' %>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="col-md-5">
+                    <table class="table table-sm table-borderless">
+                      <tbody>
+                        <tr>
+                          <!-- <td>Image</td> -->
+                          <td>
+                            <img
+                              src="/<%= book.image %>"
+                              alt="<%= book.title %>"
+                              height="400px"
+                            />
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -133,6 +173,9 @@
 
     <!-- Scroll to Top Button & Logout Modal-->
     <%- include('./admin-includes/common-css-includes.ejs') %>
+
+    <!-- Delete Modal-->
+    <%- include('./admin-includes/delete-book-modal.ejs') %>
 
     <!-- Import Common JS Files  -->
     <%- include('./admin-includes/common-js-includes.ejs') %>

@@ -6,6 +6,6 @@ const bookController = require('../../controller/user/books');
 
 router.get('/', bookController.booksPage);
 
-router.get('/book-details', bookController.bookDetailsPage);
+router.get('/:book_id', bookController.bookDetailsPage);
 
 exports.routes = router;

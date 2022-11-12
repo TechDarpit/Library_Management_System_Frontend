@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       author_name: { type: DataTypes.STRING, allowNull: false },
       description: { type: DataTypes.TEXT },
       image: { type: DataTypes.STRING },
+      category: { type: DataTypes.STRING, allowNull: false },
       total_quantity: { type: DataTypes.INTEGER, allowNull: false },
       available_quantity: { type: DataTypes.INTEGER },
       status: { type: DataTypes.TINYINT(1), defaultValue: 1 },

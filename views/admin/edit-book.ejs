@@ -45,6 +45,7 @@
                   class="needs-validation"
                   method="POST"
                   action="http://localhost:5000/admin/books/<%= book.id %>/edit"
+                  enctype="multipart/form-data"
                   novalidate
                 >
                   <div class="row">
@@ -101,6 +102,24 @@
                       </div>
 
                       <div class="mb-3">
+                        <label for="category" class="form-label"
+                          >Category</label
+                        >
+                        <input
+                          name="category"
+                          class="form-control"
+                          type="text"
+                          min="1"
+                          placeholder="Enter Book Category"
+                          value="<%= book.category %>"
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Please Enter Valid Book Category.
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
                         <label for="quantity" class="form-label"
                           >Quantity</label
                         >
@@ -119,17 +138,15 @@
                       </div>
 
                       <div class="mb-3">
-                        <label for="book_image" class="form-label"
+                        <label for="image" class="form-label"
                           >Cover Image</label
                         >
                         <input
                           class="form-control"
                           type="file"
-                          id="book_image"
-                          name="book_image"
+                          id="image"
+                          name="image"
                           accept="image/*"
-                          value="<%= book.image %>"
-                          required
                         />
                         <div class="invalid-feedback">
                           Please Uplode Book Image.

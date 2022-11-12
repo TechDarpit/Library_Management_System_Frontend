@@ -39,25 +39,30 @@
         <div class="container" data-aos="fade-up">
           <div class="section-title">
             <h2>Books</h2>
-            <p>Popular Books</p>
+            <p>Recent Books</p>
           </div>
 
           <div class="row" data-aos="zoom-in" data-aos-delay="100">
+            <% for (let book of data.recentBooks) { %>
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
               <div class="course-item">
                 <img
-                  src="/assets/img/course-1.jpg"
+                  src="/<%= book.image %>"
                   class="img-fluid"
-                  alt="..."
+                  alt="<%= book.title %>"
                 />
                 <div class="course-content">
                   <div
                     class="d-flex justify-content-between align-items-center mb-3"
                   >
-                    <h4>Web Development</h4>
+                    <h4><%= book.category %></h4>
                   </div>
 
-                  <h3><a href="course-details.html">Website Design</a></h3>
+                  <h3>
+                    <a href="/library-management-system/books/<%= book.id %>"
+                      ><%= book.title %></a
+                    >
+                  </h3>
 
                   <div
                     class="trainer d-flex justify-content-between align-items-center"
@@ -68,121 +73,14 @@
                         class="img-fluid"
                         alt="Author"
                       />
-                      <span>Antonio</span>
+                      <span><%= book.author_name %></span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- End Course Item-->
+            <% } %>
 
-            <div
-              class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0"
-            >
-              <div class="course-item">
-                <img
-                  src="/assets/img/course-2.jpg"
-                  class="img-fluid"
-                  alt="..."
-                />
-                <div class="course-content">
-                  <div
-                    class="d-flex justify-content-between align-items-center mb-3"
-                  >
-                    <h4>Marketing</h4>
-                  </div>
-
-                  <h3>
-                    <a href="course-details.html">Search Engine Optimization</a>
-                  </h3>
-
-                  <div
-                    class="trainer d-flex justify-content-between align-items-center"
-                  >
-                    <div class="trainer-profile d-flex align-items-center">
-                      <img
-                        src="/assets/img/author.jpg"
-                        class="img-fluid"
-                        alt=""
-                      />
-                      <span>Lana</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- End Course Item-->
-
-            <div
-              class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0"
-            >
-              <div class="course-item">
-                <img
-                  src="/assets/img/course-2.jpg"
-                  class="img-fluid"
-                  alt="..."
-                />
-                <div class="course-content">
-                  <div
-                    class="d-flex justify-content-between align-items-center mb-3"
-                  >
-                    <h4>Marketing</h4>
-                  </div>
-
-                  <h3>
-                    <a href="course-details.html">Search Engine Optimization</a>
-                  </h3>
-
-                  <div
-                    class="trainer d-flex justify-content-between align-items-center"
-                  >
-                    <div class="trainer-profile d-flex align-items-center">
-                      <img
-                        src="/assets/img/author.jpg"
-                        class="img-fluid"
-                        alt=""
-                      />
-                      <span>Lana</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- End Course Item-->
-
-            <div
-              class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0"
-            >
-              <div class="course-item">
-                <img
-                  src="/assets/img/course-3.jpg"
-                  class="img-fluid"
-                  alt="..."
-                />
-                <div class="course-content">
-                  <div
-                    class="d-flex justify-content-between align-items-center mb-3"
-                  >
-                    <h4>Content</h4>
-                  </div>
-
-                  <h3><a href="course-details.html">Copywriting</a></h3>
-
-                  <div
-                    class="trainer d-flex justify-content-between align-items-center"
-                  >
-                    <div class="trainer-profile d-flex align-items-center">
-                      <img
-                        src="/assets/img/author.jpg"
-                        class="img-fluid"
-                        alt=""
-                      />
-                      <span>Brandon</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             <!-- End Course Item-->
           </div>
         </div>
