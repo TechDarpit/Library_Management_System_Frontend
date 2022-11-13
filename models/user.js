@@ -36,10 +36,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         // allowNull: false,
       },
-      gender: {
-        type: DataTypes.STRING,
-      },
-      birth_date: { type: DataTypes.DATE },
       status: {
         type: DataTypes.TINYINT(1),
         defaultValue: 1,

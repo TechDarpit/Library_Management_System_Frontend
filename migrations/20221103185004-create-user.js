@@ -30,10 +30,6 @@ module.exports = {
       mobile_number: {
         type: Sequelize.INTEGER,
       },
-      gender: {
-        type: Sequelize.STRING,
-      },
-      birth_date: { type: Sequelize.DATE },
       status: {
         type: Sequelize.TINYINT(1),
         defaultValue: 1,

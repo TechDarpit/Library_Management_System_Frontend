@@ -85,6 +85,7 @@ exports.register = async (req, res, next) => {
       confirmPassword,
       mobile_number,
     } = req.body;
+    
     const hash_password = bcrypt.hashSync(password, 12);
 
     console.log('mobile_number: ', mobile_number);

@@ -19,9 +19,9 @@ router.get('/forgot-password', LMSController.forgotPasswordPage);
 
 router.get('/', auth, LMSController.homePage);
 
-router.get('/about-us', LMSController.aboutUsPage);
+router.get('/about-us', auth, LMSController.aboutUsPage);
 
-router.get('/contact-us', LMSController.contactUsPage);
+router.get('/contact-us', auth, LMSController.contactUsPage);
 
 router.use('/books', booksRoutes.routes);
 
