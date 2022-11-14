@@ -1,6 +1,7 @@
 const { sequelize } = require('../../models/index');
 const models = require('../../models/index');
 const Book = models.Book;
+const User = models.User;
 const Issued_Books = models.Issued_Books;
 
 const { Op } = require('sequelize');
@@ -67,10 +68,18 @@ exports.bookDetails = async (req, res, next) => {
     const books_id = req.params.book_id;
     const bookData = await Book.findOne({
       where: { id: books_id, status: [0, 1] },
+    });
+
+    const currentIssuedBooks = await Issued_Books.findAll({
+      where: { book_id: books_id, return_date: null },
+      order: [['createdAt', 'ASC']],
       include: {
-        model: Issued_Books,
+        model: User,
       },
     });
+
+    console.log('currentIssuedBooks: ', currentIssuedBooks);
+    bookData.Issued_Books = currentIssuedBooks;
 
     console.log('\n\nbookData: ', JSON.stringify(bookData));
 

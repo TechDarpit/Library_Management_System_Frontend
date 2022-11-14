@@ -3,6 +3,8 @@
 const models = require('../../models/index');
 
 const User = models.User;
+const Book = models.Book;
+const Issued_Books = models.Issued_Books;
 
 exports.usersList = async (req, res, next) => {
   const usersList = await User.findAll({ where: { role: 2 } });
@@ -23,6 +25,18 @@ exports.userDetails = async (req, res, next) => {
   const userData = await User.findOne({
     where: { id: user_id, role: 2 },
   });
+
+  const currentIssuedBooks = await Issued_Books.findAll({
+    where: { user_id: user_id },
+    order: [['createdAt', 'ASC']],
+    include: {
+      model: Book,
+    },
+  });
+
+  userData.books = currentIssuedBooks;
+  console.log('currentIssuedBooks: ', JSON.stringify(currentIssuedBooks));
+
   console.log('\n\nuserData: ', JSON.stringify(userData));
 
   res.render('./admin/user-details', {

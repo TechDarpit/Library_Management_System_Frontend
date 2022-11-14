@@ -98,21 +98,13 @@
                     </thead>
 
                     <tbody>
+                      <% for (let book of user.books) { %>
                       <tr>
-                        <td>Book 1</td>
-                        <td>20-10-2022</td>
-                        <td>25-10-2022</td>
+                        <td><%= book.Book.title %></td>
+                        <td><%= book.issue_date %></td>
+                        <td><%= book.return_date %></td>
                       </tr>
-                      <tr>
-                        <td>Book 2</td>
-                        <td>20-10-2022</td>
-                        <td>25-10-2022</td>
-                      </tr>
-                      <tr>
-                        <td>Book 3</td>
-                        <td>20-10-2022</td>
-                        <td>25-10-2022</td>
-                      </tr>
+                      <% } %>
                     </tbody>
                   </table>
                 </div>

@@ -147,9 +147,11 @@
                     <tbody>
                       <% for (let user of book.Issued_Books) { %>
                       <tr>
-                        <td><%= user.first_name %> <%= user.last_name %></td>
-                        <td><%= user.email %></td>
-                        <td><%= user.mobile_number %></td>
+                        <td>
+                          <%= user.User.first_name %> <%= user.User.last_name %>
+                        </td>
+                        <td><%= user.User.email %></td>
+                        <td><%= user.User.mobile_number %></td>
                         <td><%= user.issue_date %></td>
                       </tr>
                       <% } %>
