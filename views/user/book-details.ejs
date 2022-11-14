@@ -27,7 +27,6 @@
               />
             </div>
             <div class="col-lg-7">
-              
               <br />
               <h5>Book Description</h5>
               <p align="justify"><%= book.description %></p>
@@ -63,16 +62,38 @@
                 </p>
               </div>
 
-              <div>
-                <button class="btn btn-success">
-                  <%= book.available_quantity > 0 ? "Issue Book" : "Book Not Available"%>
-                </button>
+              <% if (isAuthenticated) {%> <% if (!isIssued) {%>
+
+              <div class="pricing">
+                <form
+                  method="POST"
+                  action="http://localhost:5000/library-management-system/books/issue-book/<%= book.id %>"
+                >
+                  <button type="submit" class="btn-buy">
+                    <%= book.available_quantity > 0 ? "Issue Book" :
+                    "Book-Not-Available"%>
+                  </button>
+                </form>
               </div>
-              <div>
-                <button class="btn btn-success">
-                  Return Book
-                </button>
+              <%} else {%>
+
+              <div class="pricing">
+                <!-- <button class="btn btn-success">Return Book</button> -->
+                <form
+                  method="POST"
+                  action="http://localhost:5000/library-management-system/books/return-book/<%= book.id %>"
+                >
+                  <button type="submit" class="btn-buy">Return Book</button>
+                </form>
               </div>
+              <% } %> <%} else {%>
+              <div class="pricing">
+                <a class="btn-buy" href="/library-management-system/login"
+                  >Login / Signup</a
+                >
+                <p>Note: Please Login / Signup For Issue Books</p>
+              </div>
+              <% } %>
             </div>
           </div>
         </div>
