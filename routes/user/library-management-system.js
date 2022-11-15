@@ -23,6 +23,8 @@ router.get('/about-us', auth, LMSController.aboutUsPage);
 
 router.get('/contact-us', auth, LMSController.contactUsPage);
 
+router.post('/contact-us', auth, LMSController.contactUs);
+
 router.use('/books', booksRoutes.routes);
 
 // router.use((req, res, next) => {

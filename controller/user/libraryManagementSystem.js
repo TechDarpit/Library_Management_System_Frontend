@@ -7,6 +7,7 @@ const models = require('../../models/index');
 const User = models.User;
 const Book = models.Book;
 const Issued_Books = models.Issued_Books;
+const Contact_Us = models.Contact_Us;
 
 exports.loginPage = (req, res, next) => {
   try {
@@ -85,7 +86,7 @@ exports.register = async (req, res, next) => {
       confirmPassword,
       mobile_number,
     } = req.body;
-    
+
     const hash_password = bcrypt.hashSync(password, 12);
 
     console.log('mobile_number: ', mobile_number);
@@ -205,6 +206,23 @@ exports.contactUsPage = (req, res, next) => {
       isAuthenticated: req.isLoggedIn,
       userName: req.userName,
     });
+  } catch (error) {
+    console.log('error: ', error);
+  }
+};
+
+exports.contactUs = async (req, res, next) => {
+  try {
+    const { name, email, subject, message } = req.body;
+
+    const createQuery = await Contact_Us.create({
+      name,
+      email,
+      subject,
+      message,
+    });
+
+    res.redirect('/library-management-system/contact-us');
   } catch (error) {
     console.log('error: ', error);
   }

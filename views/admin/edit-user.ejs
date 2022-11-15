@@ -113,23 +113,8 @@
                       </div>
                     </div>
 
-                    <div class="col-6 mb-3">
-                      <label for="ProductName" class="form-label"
-                        >Birth Date</label
-                      >
-                      <input
-                        name="birth_date"
-                        class="form-control"
-                        type="date"
-                        placeholder="Enter Birth Date"
-                        value="<%= user.birth_date %>"
-                        required
-                      />
-                      <div class="invalid-feedback">
-                        Please Enter Valid Birth Date.
-                      </div>
-                    </div>
-
+                    <br />
+                    <br />
                     <br />
                     <div class="FormBtnMarginTop col-12 md-3">
                       <button
@@ -165,20 +150,6 @@
     <!-- Import Common JS Files  -->
     <%- include('./admin-includes/common-js-includes.ejs') %>
 
-    <!-- Page level plugins (Dashboard) -->
-    <script src="/vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom (Dashboard) scripts -->
-    <script src="/js/demo/chart-area-demo.js"></script>
-    <script src="/js/demo/chart-pie-demo.js"></script>
-
-    <!-- Page level plugins List (Table)  -->
-    <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom List (Table) scripts -->
-    <script src="/js/demo/datatables-demo.js"></script>
-
     <!-- Page level custom Edit User page scripts -->
     <script>
       // Example starter JavaScript for disabling form submissions if there are invalid fields
@@ -204,26 +175,6 @@
           );
         });
       })();
-    </script>
-
-    <!-- Page level custom Add Book page scripts -->
-    <script>
-      $(document).on('click', '.browse', function () {
-        var file = $(this).parents().find('.file');
-        file.trigger('click');
-      });
-      $('input[type="file"]').change(function (e) {
-        var fileName = e.target.files[0].name;
-        $('#file3').val(fileName);
-
-        var reader = new FileReader();
-        reader.onload = function (e) {
-          // get loaded data and render thumbnail.
-          document.getElementById('preview').src = e.target.result;
-        };
-        // read the image file as a data URL.
-        reader.readAsDataURL(this.files[0]);
-      });
     </script>
   </body>
 </html>

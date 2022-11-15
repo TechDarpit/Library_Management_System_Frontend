@@ -5,6 +5,7 @@ const models = require('../../models/index');
 const Book = models.Book;
 const User = models.User;
 const Issued_Books = models.Issued_Books;
+const Contact_Us = models.Contact_Us;
 
 exports.loginPage = async (req, res, next) => {
   try {
@@ -83,4 +84,18 @@ exports.dashboard = (req, res, next) => {
   } catch (error) {
     console.log('error: ', error);
   }
+};
+
+exports.contactUsQueriesPage = async (req, res, next) => {
+  const queries = await Contact_Us.findAll({});
+
+  res.render('./admin/contact-us', {
+    pageTitle: 'Contact Us Queries',
+    path: '/admin/contact-us',
+    formsCSS: true,
+    productCSS: true,
+    isAuthenticated: req.isLoggedIn,
+    userName: req.userName,
+    queries: queries,
+  });
 };

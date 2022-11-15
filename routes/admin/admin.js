@@ -19,6 +19,8 @@ router.use('/users', userRoutes.routes);
 
 router.use('/books', bookRoutes.routes);
 
+router.use('/contact-us', dashboardController.contactUsQueriesPage);
+
 router.get('/', (req, res, next) => {
   res.redirect('/admin/dashboard');
 });

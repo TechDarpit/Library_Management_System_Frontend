@@ -41,13 +41,9 @@
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
               <div class="card-header py-3 d-flex justify-content-between">
-                <h5 class="m-0 font-weight-bold text-primary">Books</h5>
-                <a
-                  href="/admin/books/add"
-                  class="btn btn-outline-primary btn-sm"
-                >
-                  <i class="fas fa-plus"></i> Add book
-                </a>
+                <h5 class="m-0 font-weight-bold text-primary">
+                  Contsct Us Queries
+                </h5>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
@@ -59,59 +55,20 @@
                   >
                     <thead>
                       <tr>
-                        <th>Title</th>
-                        <th>Author Name</th>
-                        <th>Category</th>
-                        <th>Total Qty.</th>
-                        <th>Available Qty.</th>
-                        <th>Status</th>
-                        <th>Actions</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Message</th>
                       </tr>
                     </thead>
 
                     <tbody>
-                      <% for (let book of books) { %>
+                      <% for (let querie of queries) { %>
                       <tr>
-                        <td>
-                          <a
-                            href="/admin/books/<%= book.id %>"
-                            style="color: gray"
-                            ><%= book.title %></a
-                          >
-                        </td>
-                        <td><%= book.author_name %></td>
-                        <td><%= book.category %></td>
-                        <td><%= book.total_quantity %></td>
-                        <td><%= book.available_quantity %></td>
-                        <td>
-                          <%= book.status === 1 ? 'Active' : 'Inactive' %>
-                        </td>
-                        <td class="row">
-                          <a
-                            href="/admin/books/<%= book.id %>"
-                            class="btn btn-outline-info btn-circle btn-sm m-1"
-                          >
-                            <i class="fas fa-info"></i>
-                          </a>
-                          <a
-                            href="/admin/books/<%= book.id %>/edit"
-                            class="btn btn-outline-primary btn-circle btn-sm m-1"
-                          >
-                            <i class="fas fa-edit"></i>
-                          </a>
-                          <form
-                            class="m-1"
-                            method="POST"
-                            action="http://localhost:5000/admin/books/<%= book.id %>/delete"
-                          >
-                            <button
-                              type="submit"
-                              class="btn btn-outline-danger btn-circle btn-sm"
-                            >
-                              <i class="fas fa-trash"></i>
-                            </button>
-                          </form>
-                        </td>
+                        <td><%= querie.name %></td>
+                        <td><%= querie.email %></td>
+                        <td><%= querie.subject %></td>
+                        <td><%= querie.message %></td>
                       </tr>
                       <% } %>
                     </tbody>
