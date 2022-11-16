@@ -45,7 +45,7 @@ app.listen(port, (error) => {
     console.log('Unable to start server. :( \n', error);
   } else {
     console.log(
-      `\nLibrary managemene system started on http://localhost:${port}`
+      `\nLucent library managemene system started on http://localhost:${port}`
     );
   }
 });

@@ -163,3 +163,27 @@ exports.bookDelete = async (req, res, next) => {
     console.log('error bookDelete: ', error);
   }
 };
+
+exports.toggleStatus = async (req, res, next) => {
+  try {
+    const book_id = req.params.book_id;
+
+    const bookData = await Book.findOne({
+      where: { id: book_id },
+    });
+
+    toggleStatus = {
+      status: bookData.status == 1 ? 0 : 1,
+    };
+
+    const updateStatus = await Book.update(toggleStatus, {
+      where: {
+        id: book_id,
+      },
+    });
+
+    res.redirect(`/admin/books/${book_id}`);
+  } catch (error) {
+    console.log('error bookDelete: ', error);
+  }
+};

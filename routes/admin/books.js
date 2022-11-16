@@ -27,6 +27,8 @@ router.get('/:book_id', adminBookController.bookDetails);
 
 router.post('/:book_id/delete', adminBookController.bookDelete);
 
+router.post('/:book_id/change-status', adminBookController.toggleStatus);
+
 router.get('/:book_id/edit', adminBookController.editBookPage);
 
 router.post(

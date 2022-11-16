@@ -34,8 +34,28 @@
               class="d-sm-flex align-items-center justify-content-between mb-4"
             >
               <h1 class="h3 mb-0 text-gray-800">
-                <%= user.first_name %> <%= user.last_name %> (User Name / Email)
+                <%= user.first_name %> <%= user.last_name %>
               </h1>
+              <div class="row">
+                <form
+                  class="mr-2"
+                  method="POST"
+                  action="http://localhost:5000/admin/users/<%= user.id %>/change-status"
+                >
+                  <button type="submit" class="btn btn-outline-primary btn-sm">
+                    <i
+                      class="fas <%= user.status !== 1 ? 'fa-toggle-on' : 'fa-toggle-off' %>"
+                    ></i>
+                    <%= user.status !== 1 ? 'Active' : 'Inactive' %>
+                  </button>
+                </form>
+                <a
+                  href="/admin/users/<%= user.id %>/edit"
+                  class="btn btn-outline-primary btn-sm mr-3"
+                >
+                  <i class="fas fa-edit"></i> Edit
+                </a>
+              </div>
             </div>
 
             <!-- User Details Page -->

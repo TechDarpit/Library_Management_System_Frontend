@@ -4,6 +4,7 @@ const userRoutes = require('./users');
 const bookRoutes = require('./books');
 
 const dashboardController = require('../../controller/admin/dashboard');
+const { auth } = require('../../util/auth');
 
 const router = express.Router();
 
@@ -13,13 +14,13 @@ router.post('/login', dashboardController.login);
 
 router.get('/forgot-password', dashboardController.forgotPassword);
 
-router.get('/dashboard', dashboardController.dashboard);
+router.get('/dashboard', auth, dashboardController.dashboard);
 
-router.use('/users', userRoutes.routes);
+router.use('/users', auth, userRoutes.routes);
 
-router.use('/books', bookRoutes.routes);
+router.use('/books', auth, bookRoutes.routes);
 
-router.use('/contact-us', dashboardController.contactUsQueriesPage);
+router.use('/contact-us', auth, dashboardController.contactUsQueriesPage);
 
 router.get('/', (req, res, next) => {
   res.redirect('/admin/dashboard');

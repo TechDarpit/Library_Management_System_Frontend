@@ -67,3 +67,27 @@ exports.editUser = async (req, res, next) => {
     user: userData,
   });
 };
+
+exports.toggleStatus = async (req, res, next) => {
+  try {
+    const user_id = req.params.user_id;
+
+    const userData = await User.findOne({
+      where: { id: user_id },
+    });
+
+    toggleStatus = {
+      status: userData.status == 1 ? 0 : 1,
+    };
+
+    const updateStatus = await User.update(toggleStatus, {
+      where: {
+        id: user_id,
+      },
+    });
+
+    res.redirect(`/admin/users/${user_id}`);
+  } catch (error) {
+    console.log('error bookDelete: ', error);
+  }
+};
